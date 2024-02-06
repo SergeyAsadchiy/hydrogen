@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {ChangeEvent, useEffect, useMemo, useState} from "react";
+import {ChangeEvent, useEffect, useMemo, useState} from 'react';
 
 export function QuantityInput({
   label = '',
@@ -22,7 +22,7 @@ export function QuantityInput({
 
   const setDecrease = () => {
     quantity > minValue ? setQuantity(quantity - 1) : setQuantity(minValue);
-  }
+  };
 
   const setIncrease = () => {
     if (maxValue !== null) {
@@ -30,7 +30,7 @@ export function QuantityInput({
       return;
     }
     setQuantity(quantity + 1);
-  }
+  };
 
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     let value = Number((event.target as HTMLInputElement).value);
@@ -45,11 +45,11 @@ export function QuantityInput({
     }
 
     setQuantity(value);
-  }
+  };
 
   const decreaseDisabled = useMemo(() => {
     return quantity <= minValue;
-  }, [quantity]);
+  }, [minValue, quantity]);
 
   const increaseDisabled = useMemo(() => {
     return maxValue ? quantity >= maxValue : false;

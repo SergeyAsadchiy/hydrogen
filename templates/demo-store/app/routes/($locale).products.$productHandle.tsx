@@ -30,7 +30,7 @@ import {
   Link,
   AddToCartButton,
   Button,
-  QuantityInput
+  QuantityInput,
 } from '~/components';
 import {getExcerpt} from '~/lib/utils';
 import {seoPayload} from '~/lib/seo.server';
@@ -243,17 +243,22 @@ export function ProductForm({
    * You'll need to configure this from your private app in order to get anything useful for quantityAvailable.
    * https://shopify.dev/docs/api/usage/access-scopes
    */
-  const quantityAvailable: number | null = selectedVariant.quantityAvailable || null
+  const quantityAvailable: number | null =
+    selectedVariant.quantityAvailable || null;
 
   const priceWithQuantity = {
-    amount: String(Number(selectedVariant?.price?.amount || 0) * productQuantity),
-    currencyCode: selectedVariant?.price?.currencyCode
-  }
+    amount: String(
+      Number(selectedVariant?.price?.amount || 0) * productQuantity,
+    ),
+    currencyCode: selectedVariant?.price?.currencyCode,
+  };
 
   const compareAtPriceWithQuantity = {
-    amount: String(Number(selectedVariant?.compareAtPrice?.amount || 0) * productQuantity),
-    currencyCode: selectedVariant?.compareAtPrice?.currencyCode
-  }
+    amount: String(
+      Number(selectedVariant?.compareAtPrice?.amount || 0) * productQuantity,
+    ),
+    currencyCode: selectedVariant?.compareAtPrice?.currencyCode,
+  };
 
   return (
     <div className="grid gap-10">
