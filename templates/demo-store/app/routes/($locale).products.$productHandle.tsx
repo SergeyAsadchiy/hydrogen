@@ -246,12 +246,12 @@ export function ProductForm({
   const quantityAvailable: number | null = selectedVariant.quantityAvailable || null
 
   const priceWithQuantity = {
-    amount: String(selectedVariant?.price?.amount * productQuantity),
+    amount: String(Number(selectedVariant?.price?.amount || 0) * productQuantity),
     currencyCode: selectedVariant?.price?.currencyCode
   }
 
   const compareAtPriceWithQuantity = {
-    amount: String(selectedVariant?.compareAtPrice?.amount * productQuantity),
+    amount: String(Number(selectedVariant?.compareAtPrice?.amount || 0) * productQuantity),
     currencyCode: selectedVariant?.compareAtPrice?.currencyCode
   }
 
